@@ -6,4 +6,11 @@
  */
 export function sortStrings(arr, param = 'asc') {
 
+    let result = arr.slice(); // copy array
+    function compare(a,b){
+        return a.normalize().localeCompare(b.normalize(), ['ru', 'en'], { caseFirst: 'upper' })
+    }
+    result.sort((nxt, prev) =>
+        (param === 'desc')?compare(prev,nxt):compare(nxt,prev));    // sort array 
+    return result;
 }

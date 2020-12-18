@@ -5,5 +5,8 @@
  * @returns {object} - returns the new object
  */
 export const omit = (obj, ...fields) => {
-
+    let cloneObj = JSON.parse(JSON.stringify(obj));
+    let fieldsArray = [...fields];
+    fieldsArray.forEach((val)=>(obj.hasOwnProperty(val))?delete cloneObj[val]:'');
+    return cloneObj;
 };
