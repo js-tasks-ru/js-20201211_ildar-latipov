@@ -12,7 +12,6 @@ export function createGetter(path) {
           return result;  
           }
           catch(error){
-           console.log(error);
           }          
     }
 }
