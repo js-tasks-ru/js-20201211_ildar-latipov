@@ -5,5 +5,20 @@
  * @returns {string} - the new string without extra symbols according passed size
  */
 export function trimSymbols(string, size) {
-
+    let result = '';
+    let cutedStr = '';
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] === string[i + 1]) {
+            cutedStr += string[i];
+        }
+        else {
+            cutedStr += string[i];
+            if (cutedStr.length > size) {
+                cutedStr = cutedStr.substring(0, size);
+            }
+            result += cutedStr;
+            cutedStr = '';
+        }
+    }
+    return result;
 }
