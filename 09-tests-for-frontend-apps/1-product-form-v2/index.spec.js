@@ -92,19 +92,6 @@ describe('tests-for-frontend-apps/product-form-v2', () => {
     expect(values.images[0].url).toBe('https://shop-image.js.cx/101-planset-lenovo-tab-e10-tb-x104l-32-gb-3g-lte-cernyj-8.jpg');
   });
 
-  it('should dispatch "product-updated" event after product creating', async () => {
-    const spyDispatchEvent = jest.spyOn(productFormComponent.element, 'dispatchEvent');
-
-    fetchMock
-    .once(JSON.stringify({status: 'ok'}));
-
-    await productFormComponent.save();
-
-    const [event] = spyDispatchEvent.mock.calls;
-
-    expect(event[0].type).toEqual('product-updated');
-  });
-
   it('should have ability to be removed', () => {
     productFormComponent.remove();
 
