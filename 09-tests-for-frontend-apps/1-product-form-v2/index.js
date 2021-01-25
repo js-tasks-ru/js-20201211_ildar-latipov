@@ -222,7 +222,7 @@ export default class ProductForm {
   }
 
   getFormData() {
-    const { imageListContainer } = this.subElements;
+    const { imageListContainer, productForm } = this.subElements;
     const excludedFields = ['images'];
     const formatToNumber = ['price', 'quantity', 'discount', 'status'];
     const fields = Object.keys(this.defaultFormData).filter(item => !excludedFields.includes(item));
